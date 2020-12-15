@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 
 export default function Person({}) {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
+                const [firstName, setFirstName] = useState("");
+                                  const [lastName, setLastName] = useState("");
+      const [email, setEmail] = useState("");
 
   function handleSubmit(event) {
     event.preventDefault();
 
-    const payload = { firstName, lastName, email };
+        const payload = { firstName, lastName, email };
 
     console.log(payload);
 
