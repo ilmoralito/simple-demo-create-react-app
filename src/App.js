@@ -8,28 +8,28 @@ function App() {
     {
       id: 1,
       name: "Hotch",
-      isAlive: false
+      isAlive: false,
     },
     {
       id: 2,
       name: "Bonita",
-      isAlive: false
+      isAlive: false,
     },
     {
       id: 3,
       name: "Peluso",
-      isAlive: false
+      isAlive: false,
     },
     {
       id: 4,
       name: "Nami",
-      isAlive: true
+      isAlive: true,
     },
     {
       id: 5,
       name: "Lola",
-      isAlive: false
-    }
+      isAlive: false,
+    },
   ];
 
   return (
@@ -65,7 +65,7 @@ function Hello({ name = "World!" }) {
 function Pets({ pets }) {
   return (
     <ul>
-      {pets.map(pet => (
+      {pets.map((pet) => (
         <Pet key={pet.id} {...pet} />
       ))}
     </ul>
