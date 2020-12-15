@@ -6,7 +6,7 @@ export default function Person({}) {
   const [email, setEmail] = useState("");
 
   function handleSubmit(event) {
-    event.preventDefault();
+            event.preventDefault();
 
         const payload = { firstName, lastName, email };
 
