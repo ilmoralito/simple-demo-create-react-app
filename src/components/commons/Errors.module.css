@@ -1,0 +1,14 @@
+.errors {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 10px;
+  border: 1px dashed tomato;
+  font-size: 0.9em;
+}
+
+.item {
+  padding: 10px;
+  color: tomato;
+  border-bottom: 1px dashed tomato;
+  text-align: left;
+}

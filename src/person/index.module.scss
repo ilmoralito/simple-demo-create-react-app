@@ -1,0 +1,22 @@
+form {
+  width: 600px;
+  margin: 10px 0;
+  color: #222222;
+  background-color: white;
+  padding: 10px;
+
+  div {
+    margin-bottom: 20px;
+
+    label {
+      display: block;
+      text-align: left;
+      font-size: 0.8em;
+    }
+
+    input {
+      padding: 10px;
+      width: 100%;
+    }
+  }
+}
