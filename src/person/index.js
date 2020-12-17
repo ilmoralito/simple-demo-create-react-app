@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Errors from "../components/commons/Errors";
 import Button from "../components/commons/Button";
 import styles from "./index.module.scss";
+import BButton from "react-bootstrap/Button";
 
 export default function Person({}) {
   const [firstName, setFirstName] = useState("");
@@ -42,6 +43,10 @@ export default function Person({}) {
   }
 
   const logo512 = process.env.PUBLIC_URL + "logo512.png";
+  const nodeEnvironemt = process.env.NODE_ENV;
+  const child = process.env.REACT_APP_CHILD;
+
+  console.log(logo512, nodeEnvironemt, child);
 
   return (
     <div>
@@ -83,6 +88,7 @@ export default function Person({}) {
         <div>
           <button type="submit">Submit</button>
           <Button type="submit">Custom submit</Button>
+          <BButton variant="primary">Primary</BButton>
         </div>
       </form>
     </div>

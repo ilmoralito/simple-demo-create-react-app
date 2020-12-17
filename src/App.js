@@ -2,6 +2,15 @@ import logo from "./logo.svg";
 import "./App.css";
 
 import Person from "./person";
+import Greeting from "./components/greeting";
+import Home from "./components/home";
+
+import { Switch, Route, Link } from "react-router-dom";
+import About from "./components/about";
+import Contact from "./components/contact";
+import TodoApp from "./components/todo-app";
+import Posts from "./components/posts";
+import { PhotoGrid } from "./components/photo-grid";
 
 function App() {
   const petList = [
@@ -35,7 +44,50 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <ul>
+          <li>
+            <Link to="/home">Home</Link>
+          </li>
+          <li>
+            <Link to="/about">About</Link>
+          </li>
+          <li>
+            <Link to="/contact">Contact</Link>
+          </li>
+          <li>
+            <Link to="/todo-app">Todo app</Link>
+          </li>
+          <li>
+            <Link to="/posts">Posts</Link>
+          </li>
+          <li>
+            <Link to="photo-grid">Photo grid</Link>
+          </li>
+        </ul>
+        <Switch>
+          <Route path="/home">
+            <Home />
+          </Route>
+          <Route path="/about">
+            <About />
+          </Route>
+          <Route path="/contact">
+            <Contact />
+          </Route>
+          <Route path="/todo-app">
+            <TodoApp />
+          </Route>
+          <Route path="/posts">
+            <Posts />
+          </Route>
+          <Route path="/photo-grid">
+            <PhotoGrid />
+          </Route>
+        </Switch>
         <img src={logo} className="App-logo" alt="logo" />
+        <Greeting />
+        <Greeting name="ada" />
+        <Greeting name="leon" />
         <p>
           Edit <code>src/App.js</code> and save to reload. Trying...
         </p>
