@@ -3,6 +3,7 @@ import { Link, Route, Switch, useRouteMatch } from "react-router-dom";
 import { getPosts } from "../../api/jsonplaceholder";
 import { actionCreators, initialState, reducer } from "../../reducers/posts";
 import styles from "./index.module.scss";
+import ThemedButton from "../commons/themed-button";
 
 export default function Posts() {
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -47,6 +48,7 @@ export default function Posts() {
       <h1>
         Posts {postList.length}/{posts.length}
       </h1>
+      <ThemedButton>Click me to toggle the theme</ThemedButton>
       <div style={{ display: "flex" }}>
         <div>
           <FilterPosts filterText={state.filterText} onFilter={handleFilter} />

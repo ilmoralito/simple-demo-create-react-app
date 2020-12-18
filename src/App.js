@@ -11,8 +11,14 @@ import Contact from "./components/contact";
 import TodoApp from "./components/todo-app";
 import Posts from "./components/posts";
 import { PhotoGrid } from "./components/photo-grid";
+import { ThemeContext, themes } from "./contexts/theme-context";
+import { languages, LanguageContext } from "./contexts/language-context";
+import { useState } from "react";
+import LanguageSwicth from "./components/language-switch";
 
 function App() {
+  const [currentLanguage, setCurrentLanguage] = useState(languages.en);
+  const [theme, setTheme] = useState(themes.light);
   const petList = [
     {
       id: 1,
@@ -41,72 +47,100 @@ function App() {
     },
   ];
 
+  function handleToggleTheme() {
+    setTheme(theme === themes.light ? themes.dark : themes.light);
+  }
+
+  function handleToggleLanguage() {
+    setCurrentLanguage(
+      currentLanguage === languages.en ? languages.es : languages.en
+    );
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <ul>
-          <li>
-            <Link to="/home">Home</Link>
-          </li>
-          <li>
-            <Link to="/about">About</Link>
-          </li>
-          <li>
-            <Link to="/contact">Contact</Link>
-          </li>
-          <li>
-            <Link to="/todo-app">Todo app</Link>
-          </li>
-          <li>
-            <Link to="/posts">Posts</Link>
-          </li>
-          <li>
-            <Link to="photo-grid">Photo grid</Link>
-          </li>
-        </ul>
-        <Switch>
-          <Route path="/home">
-            <Home />
-          </Route>
-          <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/contact">
-            <Contact />
-          </Route>
-          <Route path="/todo-app">
-            <TodoApp />
-          </Route>
-          <Route path="/posts">
-            <Posts />
-          </Route>
-          <Route path="/photo-grid">
-            <PhotoGrid />
-          </Route>
-        </Switch>
-        <img src={logo} className="App-logo" alt="logo" />
-        <Greeting />
-        <Greeting name="ada" />
-        <Greeting name="leon" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload. Trying...
-        </p>
-        <Person />
-        <Calculator number1={1} number2={2} />
-        <Pets pets={petList} />
-        <Hello />
-        <Hello name="Ada" />
-        <Hello name="Wong" />
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <LanguageContext.Provider
+      value={{
+        language: currentLanguage,
+        onToggleLanguage: handleToggleLanguage,
+      }}
+    >
+      <ThemeContext.Provider
+        value={{ theme, onToggleTheme: handleToggleTheme }}
+      >
+        <div className="App">
+          <LanguageSwicth />
+          <header
+            className={
+              theme === themes.dark ? "App-header" : "App-header-light"
+            }
+          >
+            <ul>
+              <li>
+                <Link to="/home">Home</Link>
+              </li>
+              <li>
+                <Link to="/about">About</Link>
+              </li>
+              <li>
+                <Link to="/contact">Contact</Link>
+              </li>
+              <li>
+                <Link to="/todo-app">Todo app</Link>
+              </li>
+              <li>
+                <Link to="/posts">Posts</Link>
+              </li>
+              <li>
+                <Link to="photo-grid">Photo grid</Link>
+              </li>
+            </ul>
+            <Switch>
+              <Route path="/home">
+                <Home />
+              </Route>
+              <Route path="/about">
+                <About />
+              </Route>
+              <Route path="/contact">
+                <Contact />
+              </Route>
+              <Route path="/todo-app">
+                <TodoApp />
+              </Route>
+              <Route path="/posts">
+                <Posts />
+              </Route>
+              <Route path="/photo-grid">
+                <PhotoGrid />
+              </Route>
+            </Switch>
+            <p>{currentLanguage}</p>
+            <img src={logo} className="App-logo" alt="logo" />
+            <Greeting />
+            <Greeting name="ada" />
+            <Greeting name="leon" />
+
+            <p>
+              Edit <code>src/App.js</code> and save to reload. Trying...
+            </p>
+            <Person />
+            <Calculator number1={1} number2={2} />
+            <Pets pets={petList} />
+            <Hello />
+            <Hello name="Ada" />
+            <Hello name="Wong" />
+            <a
+              className="App-link"
+              href="https://reactjs.org"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Learn React
+            </a>
+          </header>
+        </div>
+      </ThemeContext.Provider>
+    </LanguageContext.Provider>
   );
 }
 

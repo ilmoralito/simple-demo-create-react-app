@@ -5,12 +5,15 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router } from "react-router-dom";
+import MyContext from "./contexts/my-context";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
-      <App />
-    </Router>
+    <MyContext.Provider value="nami">
+      <Router>
+        <App />
+      </Router>
+    </MyContext.Provider>
   </React.StrictMode>,
   document.getElementById("root")
 );
