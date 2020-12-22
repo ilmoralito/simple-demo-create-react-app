@@ -36,5 +36,20 @@
 }
 
 .item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
   text-align: center;
+  padding: 10px;
+  margin-right: 5px;
+  border: 1px solid gray;
+  width: 25px;
+  height: 25px;
+  overflow: hidden;
+}
+
+.item a {
+  font-size: 0.8em;
+  text-decoration: none;
 }

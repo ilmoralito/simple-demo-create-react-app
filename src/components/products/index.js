@@ -43,6 +43,10 @@ function Product({ id, name, description, price, images }) {
 function Gallery({ images }) {
   const [currentImage, setCurrentImage] = useState(images[0]);
 
+  function handleClick(image) {
+    setCurrentImage(image);
+  }
+
   return (
     <div>
       <img
@@ -51,17 +55,23 @@ function Gallery({ images }) {
       />
       <ul className={styles.gallery}>
         {images.length > 1 &&
-          images.map((image) => (
-            <li key={image} className={styles.item}>
+          images.map((image, index) => (
+            <li
+              key={image}
+              className={styles.item}
+              style={{
+                backgroundColor: currentImage === image ? "#eee" : "white",
+              }}
+            >
               <a
                 href="#"
                 onClick={(event) => {
                   event.preventDefault();
 
-                  setCurrentImage(image);
+                  handleClick(image);
                 }}
               >
-                +
+                {++index}
               </a>
             </li>
           ))}
