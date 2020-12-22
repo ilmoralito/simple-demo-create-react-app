@@ -14,10 +14,15 @@ import { PhotoGrid } from "./components/photo-grid";
 import { ThemeContext, themes } from "./contexts/theme-context";
 import { languages, LanguageContext } from "./contexts/language-context";
 import { ShoppingCartContext } from "./contexts/shopping-cart-context";
-import { useState } from "react";
+import { useReducer, useState } from "react";
 import LanguageSwitch from "./components/language-switch";
 import Products from "./components/products";
 import ShoppingCart from "./components/shopping-cart";
+import {
+  initialState,
+  actionCreators,
+  reducer,
+} from "./reducers/shopping-cart";
 
 function App() {
   const [currentLanguage, setCurrentLanguage] = useState(
@@ -25,8 +30,8 @@ function App() {
   );
   const [theme, setTheme] = useState(themes.light);
   // shopping cart context
-  const [isOpenShoppingCart, setIsOpenShoppingCart] = useState(false);
   const [products, setProducts] = useState([]);
+  const [state, dispatch] = useReducer(reducer, initialState);
   const petList = [
     {
       id: 1,
@@ -69,72 +74,27 @@ function App() {
   }
 
   function handleToggleShoppingCart() {
-    setIsOpenShoppingCart(!isOpenShoppingCart);
+    dispatch(actionCreators.toggle());
   }
 
   function handleAddProduct(product) {
-    const entry = products.find((item) => item.id === product.id);
-
-    if (!entry) {
-      setProducts([
-        ...products,
-        { ...product, quantity: 1, subTotal: product.price },
-      ]);
-
-      return;
-    }
-
-    setProducts(
-      products.map((item) =>
-        item.id === product.id
-          ? {
-              ...item,
-              quantity: item.quantity + 1,
-              subTotal: product.price * item.quantity + 1,
-            }
-          : { ...item }
-      )
-    );
+    dispatch(actionCreators.add(product));
   }
 
   function handleDeleteProduct(id) {
-    setProducts(products.filter((product) => product.id !== id));
+    dispatch(actionCreators.delete(id));
   }
 
   function handleIncreaseQuantity(id) {
-    setProducts(
-      products.map((product) =>
-        product.id === +id
-          ? {
-              ...product,
-              quantity: product.quantity + 1,
-              subTotal: product.price * product.quantity + 1,
-            }
-          : { ...product }
-      )
-    );
+    dispatch(actionCreators.increaseQuantity(id));
   }
-
+  // hyg nbvyrn - esto lo puso Gonzalito
   function handleDecreaseQuantity(id) {
-    const product = products.find((product) => product.id === +id);
-
-    if (product.quantity === 0) return;
-
-    setProducts(
-      products.map((product) =>
-        product.id === +id
-          ? {
-              ...product,
-              quantity: product.quantity - 1,
-              subTotal: product.quantity * product.quantity - 1,
-            }
-          : { ...product }
-      )
-    );
+    dispatch(actionCreators.decreaseQuantity(id));
   }
 
   function handleClearShoppingCart() {
-    setProducts([]);
+    dispatch(actionCreators.clear());
   }
 
   return (
@@ -149,8 +109,8 @@ function App() {
       >
         <ShoppingCartContext.Provider
           value={{
-            isOpenShoppingCart,
-            products,
+            isOpenShoppingCart: state.isOpen,
+            products: state.products,
             onToggleOpenShoppingCart: handleToggleShoppingCart,
             onAddProduct: handleAddProduct,
             onDeleteProduct: handleDeleteProduct,
