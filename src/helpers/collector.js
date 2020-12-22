@@ -38,5 +38,7 @@ export function getWindowAndHeight() {
 }
 
 export function getTotal(products) {
-  return products.reduce((a, c) => a + c.subTotal, 0);
+  const result = products.reduce((a, c) => a + c.subTotal, 0);
+
+  return result.toFixed(2);
 }

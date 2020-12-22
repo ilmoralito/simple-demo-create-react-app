@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import styles from "./index.module.css";
 import products from "../../data/products.json";
 import { ShoppingCartContext } from "../../contexts/shopping-cart-context";
@@ -41,16 +41,31 @@ function Product({ id, name, description, price, images }) {
 }
 
 function Gallery({ images }) {
+  const [currentImage, setCurrentImage] = useState(images[0]);
+
   return (
-    <ul className={styles.gallery}>
-      {images.map((image) => (
-        <li key={image} className={styles.item}>
-          <img
-            src={`${process.env.PUBLIC_URL}/product-images/${image}`}
-            alt={image}
-          />
-        </li>
-      ))}
-    </ul>
+    <div>
+      <img
+        src={`${process.env.PUBLIC_URL}/product-images/${currentImage}`}
+        className={styles.image}
+      />
+      <ul className={styles.gallery}>
+        {images.length > 1 &&
+          images.map((image) => (
+            <li key={image} className={styles.item}>
+              <a
+                href="#"
+                onClick={(event) => {
+                  event.preventDefault();
+
+                  setCurrentImage(image);
+                }}
+              >
+                +
+              </a>
+            </li>
+          ))}
+      </ul>
+    </div>
   );
 }

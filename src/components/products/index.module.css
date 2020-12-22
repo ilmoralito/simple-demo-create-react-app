@@ -22,15 +22,19 @@
   justify-content: center;
 }
 
+.image {
+  width: 250px;
+}
+
 .gallery {
   text-align: center;
   list-style: none;
   padding: 0;
+
+  display: flex;
+  justify-content: center;
 }
 
-.gallery .item {
-}
-
-.gallery .item img {
-  width: 250px;
+.item {
+  text-align: center;
 }
