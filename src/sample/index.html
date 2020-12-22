@@ -1,0 +1,76 @@
+<style>
+  table {
+    border-collapse: collapse;
+  }
+
+  td,
+  th {
+    border: 1px solid tomato;
+  }
+
+  th {
+    text-align: left;
+  }
+
+  .flex-container {
+    display: flex;
+    align-items: baseline;
+    border: none;
+  }
+
+  .flex-container div {
+    display: flex;
+    flex-direction: column;
+  }
+</style>
+
+<table>
+  <thead>
+    <tr>
+      <th>
+        <div class="flex-container">
+          <div>
+            <a href="#">&#9650;</a>
+            <a href="#">&#9660;</a>
+          </div>
+          Column 1
+        </div>
+      </th>
+      <th>
+        <div class="flex-container">
+          <div>
+            <a href="#">&#9650;</a>
+            <a href="#">&#9660;</a>
+          </div>
+          Column 2
+        </div>
+      </th>
+      <th>
+        <div class="flex-container">
+          <div>
+            <a href="#">&#9650;</a>
+            <a href="#">&#9660;</a>
+          </div>
+          Column 3
+        </div>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Item 1</td>
+      <td>Item 1</td>
+      <td>Item 1</td>
+    </tr>
+    <tr>
+      <td>Item 2</td>
+      <td>Item 2</td>
+      <td>Item 2</td>
+    </tr>
+    <tr>
+      <td>Item 3</td>
+      <td>Item 3</td>
+      <td>Item 3</td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,53 @@
+.container {
+  width: 500px;
+  height: 100vh;
+  border-left: 1px solid gray;
+  background-color: white;
+  position: fixed;
+  padding: 10px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  transition: all 0.2s;
+}
+
+.header {
+  display: flex;
+  justify-content: flex-end;
+
+  .button {
+    border: 1px solid gray;
+    padding: 10px;
+    background-color: white;
+    text-align: right;
+    position: fixed;
+    right: 10px;
+  }
+}
+
+.products {
+  border-collapse: collapse;
+  width: 100%;
+
+  td {
+    border: 1px solid #eeeeee;
+    padding: 10px;
+  }
+}
+
+.product {
+  margin-top: 10px;
+  border-top: 1px solid gray;
+
+  td.buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.triggers {
+  display: flex;
+  justify-content: space-between;
+
+  margin-top: 10px;
+}

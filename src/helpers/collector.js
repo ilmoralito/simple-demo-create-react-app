@@ -36,3 +36,7 @@ export function getWindowAndHeight() {
 
   return { width, height };
 }
+
+export function getTotal(products) {
+  return products.reduce((a, c) => a + c.subTotal, 0);
+}
