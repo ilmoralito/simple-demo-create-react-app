@@ -77,8 +77,13 @@ export function reducer(state, action) {
         (product) => product.id === +action.payload
       );
 
-      if (product.quantity === 0) {
-        return { ...state };
+      if (product.quantity === 1) {
+        return {
+          ...state,
+          products: state.products.filter(
+            (product) => product.id !== +action.payload
+          ),
+        };
       }
 
       return {

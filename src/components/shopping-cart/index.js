@@ -19,7 +19,7 @@ export default function ShoppingCart() {
           className={styles.button}
           onClick={context.onToggleOpenShoppingCart}
         >
-          Toggle
+          Shopping cart
         </button>
       </div>
       <h2 style={{ display: "block" }}>Shopping cart</h2>
