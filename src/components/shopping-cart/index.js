@@ -23,7 +23,7 @@ export default function ShoppingCart() {
         </button>
       </div>
       <h2 style={{ display: "block" }}>Shopping cart</h2>
-      {context.products.length && (
+      {context.products.length > 0 && (
         <>
           <table className={styles.products}>
             {context.products.map((product) => (
