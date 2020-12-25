@@ -42,3 +42,13 @@ export function getTotal(products) {
 
   return result.toFixed(2);
 }
+
+export function getCurrentBooksInCart(books) {
+  return books.map((book) => book.quantity).reduce((a, c) => a + c, 0);
+}
+
+export function getBooksTotal(books) {
+  const result = books.reduce((a, c) => a + c.subTotal, 0);
+
+  return result.toFixed(2);
+}

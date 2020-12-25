@@ -1,0 +1,96 @@
+.container {
+  background-color: white;
+  border-left: 1px solid gray;
+  box-sizing: border-box;
+  padding: 10px;
+  width: 500px;
+  transition: all 0.4s;
+
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+
+    padding: 10px;
+  }
+}
+
+.item {
+  display: flex;
+  justify-content: space-evenly;
+
+  img {
+    width: 75px;
+    box-sizing: border-box;
+    padding: 10px;
+  }
+
+  .meta {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .controller {
+    display: flex;
+    align-items: baseline;
+
+    button,
+    input {
+      background-color: white;
+      padding: 10px;
+      border: 1px solid gray;
+    }
+
+    input {
+      border-left: 0;
+      border-right: 0;
+    }
+  }
+
+  .subtotal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-weight: bold;
+  }
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  height: 92%;
+  background-color: white;
+}
+
+.summary {
+  .total {
+    display: flex;
+    justify-content: space-between;
+
+    padding: 10px;
+    font-size: 0.8em;
+  }
+
+  button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: cornflowerblue;
+    color: white;
+  }
+}
+
+.button {
+  border: none;
+  background-color: #eeeeee;
+  font-weight: bold;
+  padding: 10px;
+}

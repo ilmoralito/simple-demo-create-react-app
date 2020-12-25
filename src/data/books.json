@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "title": "Essentials - Learn to Code with C",
+    "publication_date": "01-10-2016",
+    "description": "The C programming language been used to program everything from the tiny microcontrollers used in watches and toasters up to huge software systems – most of Linux (and Raspbian itself) is written in it. Learn to code with C on your Raspberry Pi across 13 packed chapters",
+    "price": 5.0,
+    "currency": "Dollar",
+    "images": ["4718_Essentials-08-Code-with-C-COVER.png"],
+    "in_stock": 10
+  },
+  {
+    "id": 2,
+    "title": "The Official Raspberry Pi Handbook 2021",
+    "publication_date": "01-11-2020",
+    "description": "To help you get the most of out of your Raspberry Pi computer, this official Handbook features 200 pages of essential information, inspiring projects, practical tutorials, and definitive reviews.",
+    "price": 10.0,
+    "currency": "Dollar",
+    "images": ["001_guizero_COVER.jpg"],
+    "in_stock": 0
+  },
+  {
+    "id": 3,
+    "title": "Raspberry Pi Beginner's Guide 4th Edition",
+    "publication_date": "01-11-2020",
+    "description": "Fully updated for Raspberry Pi 400, Raspberry Pi 4, and the latest software, this 252-page official Raspberry Pi book is crammed with projects and beginner’s guides containing all the information you need to get started using your new computer!",
+    "price": 10.0,
+    "currency": "Dollar",
+    "images": ["BG_English-cover_languages_v2.jpg"],
+    "in_stock": 15
+  }
+]

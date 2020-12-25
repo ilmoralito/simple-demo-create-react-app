@@ -23,42 +23,26 @@ import {
   actionCreators,
   reducer,
 } from "./reducers/shopping-cart";
+import Books from "./components/books";
+import BooksShoppingCart from "./components/books-shopping-cart";
+import { BooksShoppingCartContext } from "./contexts/books-shopping-cart-context";
+import BooksShoppingCartList from "./components/books-shopping-cart-list/books-shopping-cart-list";
+import {
+  initialState as booksInitialState,
+  actionCreators as booksActionCreators,
+  reducer as booksReducer,
+} from "./reducers/books-shopping-cart";
 
 function App() {
   const [currentLanguage, setCurrentLanguage] = useState(
     localStorage.getItem("currentLanguage") ?? languages.en
   );
   const [theme, setTheme] = useState(themes.light);
-  // shopping cart context
-  const [products, setProducts] = useState([]);
   const [state, dispatch] = useReducer(reducer, initialState);
-  const petList = [
-    {
-      id: 1,
-      name: "Hotch",
-      isAlive: false,
-    },
-    {
-      id: 2,
-      name: "Bonita",
-      isAlive: false,
-    },
-    {
-      id: 3,
-      name: "Peluso",
-      isAlive: false,
-    },
-    {
-      id: 4,
-      name: "Nami",
-      isAlive: true,
-    },
-    {
-      id: 5,
-      name: "Lola",
-      isAlive: false,
-    },
-  ];
+  const [booksState, booksDispatch] = useReducer(
+    booksReducer,
+    booksInitialState
+  );
 
   function handleToggleTheme() {
     setTheme(theme === themes.light ? themes.dark : themes.light);
@@ -97,6 +81,27 @@ function App() {
     dispatch(actionCreators.clear());
   }
 
+  // books
+  function handleToggleBooksShoppingCartList() {
+    booksDispatch(booksActionCreators.toggle());
+  }
+
+  function handleAddBook(book) {
+    booksDispatch(booksActionCreators.add(book));
+  }
+
+  function handleIncreaseBookQuantity(id) {
+    booksDispatch(booksActionCreators.increase_quantity(id));
+  }
+
+  function handleDecreaseBookQuantity(id) {
+    booksDispatch(booksActionCreators.decrease_quantity(id));
+  }
+
+  function handleClearBooks() {
+    booksDispatch(booksActionCreators.clear());
+  }
+
   return (
     <LanguageContext.Provider
       value={{
@@ -119,125 +124,88 @@ function App() {
             onClearShoppingCart: handleClearShoppingCart,
           }}
         >
-          <div className="App">
-            <LanguageSwitch />
-            <ShoppingCart />
-            <header
-              className={
-                theme === themes.dark ? "App-header" : "App-header-light"
-              }
-            >
-              <ul>
-                <li>
-                  <Link to="/home">Home</Link>
-                </li>
-                <li>
-                  <Link to="/about">About</Link>
-                </li>
-                <li>
-                  <Link to="/contact">Contact</Link>
-                </li>
-                <li>
-                  <Link to="/todo-app">Todo app</Link>
-                </li>
-                <li>
-                  <Link to="/posts">Posts</Link>
-                </li>
-                <li>
-                  <Link to="/photo-grid">Photo grid</Link>
-                </li>
-                <li>
-                  <Link to="/products">Products</Link>
-                </li>
-              </ul>
-              <Switch>
-                <Route path="/home">
-                  <Home />
-                </Route>
-                <Route path="/about">
-                  <About />
-                </Route>
-                <Route path="/contact">
-                  <Contact />
-                </Route>
-                <Route path="/todo-app">
-                  <TodoApp />
-                </Route>
-                <Route path="/posts">
-                  <Posts />
-                </Route>
-                <Route path="/photo-grid">
-                  <PhotoGrid />
-                </Route>
-                <Route>
-                  <Products />
-                </Route>
-              </Switch>
-              <p>{currentLanguage}</p>
-              <img src={logo} className="App-logo" alt="logo" />
-              <Greeting />
-              <Greeting name="ada" />
-              <Greeting name="leon" />
-
-              <p>
-                Edit <code>src/App.js</code> and save to reload. Trying...
-              </p>
-              <Person />
-              <Calculator number1={1} number2={2} />
-              <Pets pets={petList} />
-              <Hello />
-              <Hello name="Ada" />
-              <Hello name="Wong" />
-              <a
-                className="App-link"
-                href="https://reactjs.org"
-                target="_blank"
-                rel="noopener noreferrer"
+          <BooksShoppingCartContext.Provider
+            value={{
+              isOpen: booksState.isOpen,
+              books: booksState.books,
+              toggle: handleToggleBooksShoppingCartList,
+              add: handleAddBook,
+              increaseQuantity: handleIncreaseBookQuantity,
+              decreaseQuantity: handleDecreaseBookQuantity,
+              clear: handleClearBooks,
+            }}
+          >
+            <div className="App">
+              <LanguageSwitch />
+              <ShoppingCart />
+              <BooksShoppingCart />
+              <BooksShoppingCartList />
+              <header
+                className={
+                  theme === themes.dark ? "App-header" : "App-header-light"
+                }
               >
-                Learn React
-              </a>
-            </header>
-          </div>
+                <ul className="main-nav">
+                  <li>
+                    <Link to="/home">Home</Link>
+                  </li>
+                  <li>
+                    <Link to="/about">About</Link>
+                  </li>
+                  <li>
+                    <Link to="/contact">Contact</Link>
+                  </li>
+                  <li>
+                    <Link to="/todo-app">Todo app</Link>
+                  </li>
+                  <li>
+                    <Link to="/posts">Posts</Link>
+                  </li>
+                  <li>
+                    <Link to="/photo-grid">Photo grid</Link>
+                  </li>
+                  <li>
+                    <Link to="/products">Products</Link>
+                  </li>
+                  <li>
+                    <Link to="/books">Books</Link>
+                  </li>
+                </ul>
+              </header>
+              <main>
+                <Switch>
+                  <Route path="/home">
+                    <Home />
+                  </Route>
+                  <Route path="/about">
+                    <About />
+                  </Route>
+                  <Route path="/contact">
+                    <Contact />
+                  </Route>
+                  <Route path="/todo-app">
+                    <TodoApp />
+                  </Route>
+                  <Route path="/posts">
+                    <Posts />
+                  </Route>
+                  <Route path="/photo-grid">
+                    <PhotoGrid />
+                  </Route>
+                  <Route path="/products">
+                    <Products />
+                  </Route>
+                  <Route path="/books">
+                    <Books />
+                  </Route>
+                </Switch>
+              </main>
+            </div>
+          </BooksShoppingCartContext.Provider>
         </ShoppingCartContext.Provider>
       </ThemeContext.Provider>
     </LanguageContext.Provider>
   );
-}
-
-function Hello({ name = "World!" }) {
-  return <p>Hello {name}</p>;
-}
-
-function Pets({ pets }) {
-  return (
-    <ul>
-      {pets.map((pet) => (
-        <Pet key={pet.id} {...pet} />
-      ))}
-    </ul>
-  );
-}
-
-function Pet({ id, name, isAlive }) {
-  return (
-    <li className={isAlive ? "is-alive" : ""}>
-      {name} - has id {id} and is {isAlive ? "alive" : "not alive :("}
-    </li>
-  );
-}
-
-function Calculator({ number1, number2 }) {
-  if (!number1) {
-    return "number1 is required";
-  }
-
-  if (!number2) {
-    return "number2 is required";
-  }
-
-  const result = number1 + number2;
-
-  return <p>{result}</p>;
 }
 
 export default App;

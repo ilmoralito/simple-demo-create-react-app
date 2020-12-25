@@ -1,0 +1,21 @@
+.title {
+  text-align: left;
+}
+
+.container {
+  display: flex;
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+.item {
+  flex: 1;
+  margin-right: 10px;
+
+  display: flex;
+
+  div {
+    flex: 1;
+    padding: 0;
+  }
+}

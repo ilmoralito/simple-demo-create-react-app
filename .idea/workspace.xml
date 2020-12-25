@@ -4,8 +4,14 @@
     <list default="true" id="79ce044c-e7c0-4d18-930c-bfbadf2ffc26" name="Default Changelist" comment="Implement shopping cart">
       <change beforePath="$PROJECT_DIR$/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintcache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/shopping-cart/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/shopping-cart/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reducers/shopping-cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducers/shopping-cart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/jsonplaceholder.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/jsonplaceholder.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/shopping-cart/index.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/shopping-cart/index.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/helpers/collector.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/helpers/collector.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +51,11 @@
     <property name="settings.editor.selected.configurable" value="watcher.settings" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\gonzalo\projects\react\my-other-app\src\components\books-shopping-cart-list" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="my-other-app" type="JavascriptDebugType" uri="http://localhost:3000">
       <method v="2" />
@@ -60,7 +71,12 @@
       <updated>1608051130817</updated>
       <workItem from="1608051142823" duration="849000" />
       <workItem from="1608601477529" duration="12627000" />
-      <workItem from="1608645882899" duration="11237000" />
+      <workItem from="1608645882899" duration="12058000" />
+      <workItem from="1608736987248" duration="12367000" />
+      <workItem from="1608856531875" duration="517000" />
+      <workItem from="1608871741700" duration="880000" />
+      <workItem from="1608872787163" duration="4714000" />
+      <workItem from="1608900211228" duration="3946000" />
     </task>
     <task id="LOCAL-00001" summary="Implement shopping cart">
       <created>1608613988419</created>

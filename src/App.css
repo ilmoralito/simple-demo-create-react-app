@@ -38,6 +38,17 @@
   color: #61dafb;
 }
 
+.main-nav {
+  list-style: none;
+  padding: 0;
+
+  display: flex;
+}
+
+.main-nav li {
+  margin-right: 10px;
+}
+
 .is-alive {
   border: 1px solid white;
   padding: 10px;
