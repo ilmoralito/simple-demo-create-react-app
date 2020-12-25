@@ -6,6 +6,7 @@ import { getCurrentBooksInCart } from "../../helpers/collector";
 
 export default function BooksShoppingCart() {
   const { toggle, books } = useContext(BooksShoppingCartContext);
+  const booksInCart = getCurrentBooksInCart(books);
 
   return (
     <div
@@ -13,7 +14,9 @@ export default function BooksShoppingCart() {
       onClick={toggle}
       style={{ cursor: "pointer" }}
     >
-      <h2>{getCurrentBooksInCart(books)}</h2>
+      <h2 style={{ fontSize: booksInCart >= 100 ? ".8em" : "1em" }}>
+        {booksInCart}
+      </h2>
       <GiShoppingCart />
     </div>
   );
