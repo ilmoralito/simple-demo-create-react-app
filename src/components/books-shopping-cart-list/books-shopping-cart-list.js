@@ -40,7 +40,6 @@ function Item({ id, title, quantity, subTotal, images }) {
           <input
             type="text"
             value={currentQuantity}
-            defaultValue={currentQuantity}
             onChange={(event) => handleChange(id)(event)}
           />
           <button onClick={() => increase_quantity(id)}>

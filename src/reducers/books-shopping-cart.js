@@ -111,6 +111,13 @@ export function reducer(state, action) {
         ),
       };
     case types.CHANGE_VALUE_MANUALLY:
+      if (+action.payload.quantity <= 0) {
+        return {
+          ...state,
+          books: state.books.filter((book) => book.id !== +action.payload.id),
+        };
+      }
+
       return {
         ...state,
         books: state.books.map((book) =>
