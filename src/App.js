@@ -91,15 +91,19 @@ function App() {
   }
 
   function handleIncreaseBookQuantity(id) {
-    booksDispatch(booksActionCreators.increase_quantity(id));
+    booksDispatch(booksActionCreators.increaseQuantity(id));
   }
 
   function handleDecreaseBookQuantity(id) {
-    booksDispatch(booksActionCreators.decrease_quantity(id));
+    booksDispatch(booksActionCreators.decreaseQuantity(id));
   }
 
   function handleClearBooks() {
     booksDispatch(booksActionCreators.clear());
+  }
+
+  function handleChangeValueManually(payload) {
+    booksDispatch(booksActionCreators.changeValueManually(payload));
   }
 
   return (
@@ -130,8 +134,9 @@ function App() {
               books: booksState.books,
               toggle: handleToggleBooksShoppingCartList,
               add: handleAddBook,
-              increaseQuantity: handleIncreaseBookQuantity,
-              decreaseQuantity: handleDecreaseBookQuantity,
+              increase_quantity: handleIncreaseBookQuantity,
+              decrease_quantity: handleDecreaseBookQuantity,
+              onChangeValueManually: handleChangeValueManually,
               clear: handleClearBooks,
             }}
           >

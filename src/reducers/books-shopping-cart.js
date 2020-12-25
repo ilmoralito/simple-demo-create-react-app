@@ -3,6 +3,7 @@ const types = {
   ADD: "ADD",
   INCREASE_QUANTITY: "INCREASE_QUANTITY",
   DECREASE_QUANTITY: "DECREASE_QUANTITY",
+  CHANGE_VALUE_MANUALLY: "CHANGE_VALUE_MANUALLY",
   CLEAR: "CLEAR",
 };
 
@@ -14,8 +15,18 @@ export const initialState = {
 export const actionCreators = {
   toggle: () => ({ type: types.TOGGLE }),
   add: (payload) => ({ type: types.ADD, payload }),
-  increase_quantity: (payload) => ({ type: types.INCREASE_QUANTITY, payload }),
-  decrease_quantity: (payload) => ({ type: types.DECREASE_QUANTITY, payload }),
+  increaseQuantity: (payload) => ({
+    type: types.INCREASE_QUANTITY,
+    payload,
+  }),
+  decreaseQuantity: (payload) => ({
+    type: types.DECREASE_QUANTITY,
+    payload,
+  }),
+  changeValueManually: (payload) => ({
+    type: types.CHANGE_VALUE_MANUALLY,
+    payload,
+  }),
   clear: () => ({ type: types.CLEAR }),
 };
 
@@ -95,6 +106,19 @@ export function reducer(state, action) {
                 ...book,
                 quantity: book.quantity - 1,
                 subTotal: book.price * (book.quantity - 1),
+              }
+            : { ...book }
+        ),
+      };
+    case types.CHANGE_VALUE_MANUALLY:
+      return {
+        ...state,
+        books: state.books.map((book) =>
+          book.id === +action.payload.id
+            ? {
+                ...book,
+                quantity: +action.payload.quantity,
+                subTotal: book.price * +action.payload.quantity,
               }
             : { ...book }
         ),

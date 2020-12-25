@@ -6,20 +6,25 @@ import { getBooksTotal } from "../../helpers/collector";
 function Item({ id, title, quantity, subTotal, images }) {
   const originalQuantity = quantity;
   const [currentQuantity, setCurrentQuantity] = useState(quantity);
-  const { increaseQuantity, decreaseQuantity } = useContext(
-    BooksShoppingCartContext
-  );
+  const {
+    increase_quantity,
+    decrease_quantity,
+    onChangeValueManually,
+  } = useContext(BooksShoppingCartContext);
 
-  function handleChange(event) {
-    const value = event.target.value;
+  function handleChange(id) {
+    return function (event) {
+      const quantity = event.target.value;
 
-    if (!value || isNaN(value)) {
-      setCurrentQuantity(originalQuantity);
+      if (!quantity || isNaN(quantity)) {
+        setCurrentQuantity(originalQuantity);
 
-      return;
-    }
+        return;
+      }
 
-    setCurrentQuantity(+value);
+      setCurrentQuantity(+quantity);
+      onChangeValueManually({ id, quantity });
+    };
   }
 
   return (
@@ -31,14 +36,16 @@ function Item({ id, title, quantity, subTotal, images }) {
       <div className={styles.meta}>
         <p>{title}</p>
         <div className={styles.controller}>
-          <button onClick={() => decreaseQuantity(id)}>-</button>
+          <button onClick={() => decrease_quantity(id)}>-</button>
           <input
             type="text"
-            value={quantity}
-            defaultValue={quantity}
-            onChange={handleChange}
+            value={currentQuantity}
+            defaultValue={currentQuantity}
+            onChange={(event) => handleChange(id)(event)}
           />
-          <button onClick={() => increaseQuantity(id)}>+</button>
+          <button onClick={() => increase_quantity(id)}>
+            <strong>+</strong>
+          </button>
         </div>
       </div>
       <p className={styles.subtotal}>{subTotal}</p>
