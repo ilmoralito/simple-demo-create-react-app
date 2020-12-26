@@ -34,6 +34,7 @@ import {
 } from "./reducers/books-shopping-cart";
 import isEqual from "lodash.isequal";
 import usePrevious from "./custom-hooks/usePrevious";
+import Table from "./components/table";
 
 function App() {
   const [currentLanguage, setCurrentLanguage] = useState(
@@ -195,6 +196,9 @@ function App() {
                   <li>
                     <Link to="/books">Books</Link>
                   </li>
+                  <li>
+                    <Link to="/table">Table</Link>
+                  </li>
                 </ul>
               </header>
               <main>
@@ -222,6 +226,9 @@ function App() {
                   </Route>
                   <Route path="/books">
                     <Books />
+                  </Route>
+                  <Route path="/table">
+                    <Table />
                   </Route>
                 </Switch>
               </main>

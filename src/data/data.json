@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "title": "Title 1",
+    "year": "2019",
+    "publication_date": "2019-02-15",
+    "items": ["item 1", "item 2", "item 3"]
+  },
+  {
+    "id": 2,
+    "title": "Title 2",
+    "year": "2018",
+    "publication_date": "2018-02-15",
+    "items": ["item 1", "item 2"]
+  },
+  {
+    "id": 3,
+    "title": "Title 3",
+    "year": "2019",
+    "publication_date": "2019-12-15",
+    "items": ["item 1", "item 3", "item 3", "item 4"]
+  }
+]
