@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer, useState } from "react";
+import React, { useEffect, useReducer } from "react";
 import dataset from "../../data/data.json";
 import { initialState, actionCreators, reducer } from "../../reducers/table.js";
 import usePrevious from "../../custom-hooks/usePrevious";
