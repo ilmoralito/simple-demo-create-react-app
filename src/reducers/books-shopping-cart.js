@@ -5,6 +5,7 @@ const types = {
   DECREASE_QUANTITY: "DECREASE_QUANTITY",
   CHANGE_VALUE_MANUALLY: "CHANGE_VALUE_MANUALLY",
   CLEAR: "CLEAR",
+  SET_INITIAL_STATE_FROM_LOCALSTORAGE: "SET_INITIAL_STATE_FROM_LOCALSTORAGE",
 };
 
 export const initialState = {
@@ -28,6 +29,10 @@ export const actionCreators = {
     payload,
   }),
   clear: () => ({ type: types.CLEAR }),
+  setInitialStateFromLocalstorage: (payload) => ({
+    type: types.SET_INITIAL_STATE_FROM_LOCALSTORAGE,
+    payload,
+  }),
 };
 
 export function reducer(state, action) {
@@ -132,6 +137,8 @@ export function reducer(state, action) {
       };
     case types.CLEAR:
       return { ...state, books: [] };
+    case types.SET_INITIAL_STATE_FROM_LOCALSTORAGE:
+      return { ...state, books: action.payload };
     default:
       throw new Error("Invalid action type");
   }

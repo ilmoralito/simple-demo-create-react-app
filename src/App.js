@@ -14,7 +14,7 @@ import { PhotoGrid } from "./components/photo-grid";
 import { ThemeContext, themes } from "./contexts/theme-context";
 import { languages, LanguageContext } from "./contexts/language-context";
 import { ShoppingCartContext } from "./contexts/shopping-cart-context";
-import { useReducer, useState } from "react";
+import { useReducer, useState, useEffect } from "react";
 import LanguageSwitch from "./components/language-switch";
 import Products from "./components/products";
 import ShoppingCart from "./components/shopping-cart";
@@ -32,6 +32,8 @@ import {
   actionCreators as booksActionCreators,
   reducer as booksReducer,
 } from "./reducers/books-shopping-cart";
+import isEqual from "lodash.isequal";
+import usePrevious from "./custom-hooks/usePrevious";
 
 function App() {
   const [currentLanguage, setCurrentLanguage] = useState(
@@ -43,6 +45,24 @@ function App() {
     booksReducer,
     booksInitialState
   );
+
+  useEffect(() => {
+    const payload = localStorage.getItem("books");
+
+    if (payload) {
+      booksDispatch(
+        booksActionCreators.setInitialStateFromLocalstorage(JSON.parse(payload))
+      );
+    }
+  }, []);
+
+  const deeply = usePrevious(booksState.books);
+
+  useEffect(() => {
+    if (!isEqual(deeply, booksState.books)) {
+      localStorage.setItem("books", JSON.stringify(booksState.books));
+    }
+  }, [booksState.books, deeply]);
 
   function handleToggleTheme() {
     setTheme(theme === themes.light ? themes.dark : themes.light);
