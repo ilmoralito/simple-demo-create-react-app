@@ -66,6 +66,10 @@ function App() {
     }
   }, [booksState.books, deeply]);
 
+  useEffect(() => {
+    localStorage.setItem("currentLanguage", currentLanguage);
+  }, [currentLanguage]);
+
   function handleToggleTheme() {
     setTheme(theme === themes.light ? themes.dark : themes.light);
   }
@@ -75,8 +79,6 @@ function App() {
       currentLanguage === languages.en ? languages.es : languages.en;
 
     setCurrentLanguage(selectedLanguage);
-
-    localStorage.setItem("currentLanguage", selectedLanguage);
   }
 
   function handleToggleShoppingCart() {
