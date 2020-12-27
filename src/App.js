@@ -35,6 +35,7 @@ import {
 import isEqual from "lodash.isequal";
 import usePrevious from "./custom-hooks/usePrevious";
 import Table from "./components/table";
+import MyForm from "./components/my-form/";
 
 function App() {
   const [currentLanguage, setCurrentLanguage] = useState(
@@ -199,6 +200,9 @@ function App() {
                   <li>
                     <Link to="/table">Table</Link>
                   </li>
+                  <li>
+                    <Link to="/my-form">My form</Link>
+                  </li>
                 </ul>
               </header>
               <main>
@@ -229,6 +233,9 @@ function App() {
                   </Route>
                   <Route path="/table">
                     <Table />
+                  </Route>
+                  <Route path="/my-form">
+                    <MyForm />
                   </Route>
                 </Switch>
               </main>
