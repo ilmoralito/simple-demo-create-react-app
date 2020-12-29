@@ -10,6 +10,10 @@ export default function Home() {
       <p>
         Current language is <strong>{language}</strong>
       </p>
+      <p>Current api base urls</p>
+      <ul>
+        <li>{process.env.REACT_APP_API_BASE_URL}</li>
+      </ul>
     </div>
   );
 }

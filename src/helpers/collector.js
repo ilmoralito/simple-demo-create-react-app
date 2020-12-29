@@ -1,7 +1,17 @@
+/**
+ *
+ * @param {number} number1
+ * @param {number} number2
+ */
 export function sum(number1, number2) {
   return number1 + number2;
 }
 
+/**
+ *
+ * @param {number} number1
+ * @param {number} number2
+ */
 export function divide(number1, number2) {
   if (number2 === 0) {
     throw new Error("Invalid value 0 in operation");
@@ -10,6 +20,10 @@ export function divide(number1, number2) {
   return number1 / number2;
 }
 
+/**
+ *
+ * @param {Object} object
+ */
 export function hasEntries(object) {
   return Object.keys(object).length > 0;
 }
@@ -51,4 +65,12 @@ export function getBooksTotal(books) {
   const result = books.reduce((a, c) => a + c.subTotal, 0);
 
   return result.toFixed(2);
+}
+
+/**
+ *
+ * @param {string} string
+ */
+export function capitalize(string) {
+  return `${string.charAt(0).toUpperCase()}${string.substring(1)}`;
 }

@@ -37,6 +37,18 @@ import usePrevious from "./custom-hooks/usePrevious";
 import Table from "./components/table";
 import MyForm from "./components/my-form/";
 
+// menu
+import menu from "./data/menu.json";
+import MenuButton from "./components/menu-button";
+import { MenuContext } from "./contexts/menu-context";
+import {
+  initialState as menuInitialState,
+  actionCreators as menuActionCreators,
+  reducer as menuReducer,
+} from "./reducers/menu";
+import Menu from "./components/menu";
+import People from "./components/people";
+
 function App() {
   const [currentLanguage, setCurrentLanguage] = useState(
     localStorage.getItem("currentLanguage") ?? languages.en
@@ -47,6 +59,13 @@ function App() {
     booksReducer,
     booksInitialState
   );
+
+  // menu
+  const [menuState, menuDispatch] = useReducer(menuReducer, menuInitialState);
+
+  useEffect(() => {
+    menuDispatch(menuActionCreators.add(menu));
+  }, []);
 
   useEffect(() => {
     const payload = localStorage.getItem("books");
@@ -130,6 +149,11 @@ function App() {
     booksDispatch(booksActionCreators.changeValueManually(payload));
   }
 
+  // menu
+  function handleToggleMenu() {
+    menuDispatch(menuActionCreators.toggle());
+  }
+
   return (
     <LanguageContext.Provider
       value={{
@@ -164,84 +188,100 @@ function App() {
               clear: handleClearBooks,
             }}
           >
-            <div className="App">
-              <LanguageSwitch />
-              <ShoppingCart />
-              <BooksShoppingCart />
-              <BooksShoppingCartList />
-              <header
-                className={
-                  theme === themes.dark ? "App-header" : "App-header-light"
-                }
-              >
-                <ul className="main-nav">
-                  <li>
-                    <Link to="/home">Home</Link>
-                  </li>
-                  <li>
-                    <Link to="/about">About</Link>
-                  </li>
-                  <li>
-                    <Link to="/contact">Contact</Link>
-                  </li>
-                  <li>
-                    <Link to="/todo-app">Todo app</Link>
-                  </li>
-                  <li>
-                    <Link to="/posts">Posts</Link>
-                  </li>
-                  <li>
-                    <Link to="/photo-grid">Photo grid</Link>
-                  </li>
-                  <li>
-                    <Link to="/products">Products</Link>
-                  </li>
-                  <li>
-                    <Link to="/books">Books</Link>
-                  </li>
-                  <li>
-                    <Link to="/table">Table</Link>
-                  </li>
-                  <li>
-                    <Link to="/my-form">My form</Link>
-                  </li>
-                </ul>
-              </header>
-              <main>
-                <Switch>
-                  <Route path="/home">
-                    <Home />
-                  </Route>
-                  <Route path="/about">
-                    <About />
-                  </Route>
-                  <Route path="/contact">
-                    <Contact />
-                  </Route>
-                  <Route path="/todo-app">
-                    <TodoApp />
-                  </Route>
-                  <Route path="/posts">
-                    <Posts />
-                  </Route>
-                  <Route path="/photo-grid">
-                    <PhotoGrid />
-                  </Route>
-                  <Route path="/products">
-                    <Products />
-                  </Route>
-                  <Route path="/books">
-                    <Books />
-                  </Route>
-                  <Route path="/table">
-                    <Table />
-                  </Route>
-                  <Route path="/my-form">
-                    <MyForm />
-                  </Route>
-                </Switch>
-              </main>
-            </div>
+            <MenuContext.Provider
+              value={{
+                isOpen: menuState.isOpen,
+                menu: menuState.menu,
+                onToggleIsOpen: handleToggleMenu,
+              }}
+            >
+              <div className="App">
+                <Menu />
+                <MenuButton />
+                <LanguageSwitch />
+                <ShoppingCart />
+                <BooksShoppingCart />
+                <BooksShoppingCartList />
+                <header
+                  className={
+                    theme === themes.dark ? "App-header" : "App-header-light"
+                  }
+                >
+                  <ul className="main-nav">
+                    <li>
+                      <Link to="/home">Home</Link>
+                    </li>
+                    <li>
+                      <Link to="/about">About</Link>
+                    </li>
+                    <li>
+                      <Link to="/contact">Contact</Link>
+                    </li>
+                    <li>
+                      <Link to="/todo-app">Todo app</Link>
+                    </li>
+                    <li>
+                      <Link to="/posts">Posts</Link>
+                    </li>
+                    <li>
+                      <Link to="/photo-grid">Photo grid</Link>
+                    </li>
+                    <li>
+                      <Link to="/products">Products</Link>
+                    </li>
+                    <li>
+                      <Link to="/books">Books</Link>
+                    </li>
+                    <li>
+                      <Link to="/table">Table</Link>
+                    </li>
+                    <li>
+                      <Link to="/my-form">My form</Link>
+                    </li>
+                    <li>
+                      <Link to="/people">People</Link>
+                    </li>
+                  </ul>
+                </header>
+                <main>
+                  <Switch>
+                    <Route path="/home">
+                      <Home />
+                    </Route>
+                    <Route path="/about">
+                      <About />
+                    </Route>
+                    <Route path="/contact">
+                      <Contact />
+                    </Route>
+                    <Route path="/todo-app">
+                      <TodoApp />
+                    </Route>
+                    <Route path="/posts">
+                      <Posts />
+                    </Route>
+                    <Route path="/photo-grid">
+                      <PhotoGrid />
+                    </Route>
+                    <Route path="/products">
+                      <Products />
+                    </Route>
+                    <Route path="/books">
+                      <Books />
+                    </Route>
+                    <Route path="/table">
+                      <Table />
+                    </Route>
+                    <Route path="/my-form">
+                      <MyForm />
+                    </Route>
+                    <Route path="/people">
+                      <People />
+                    </Route>
+                  </Switch>
+                </main>
+              </div>
+            </MenuContext.Provider>
           </BooksShoppingCartContext.Provider>
         </ShoppingCartContext.Provider>
       </ThemeContext.Provider>

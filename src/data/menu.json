@@ -1,0 +1,202 @@
+{
+  "pizza": {
+    "favorites": [
+      {
+        "id": 1,
+        "name": "Hawaiiana",
+        "description": "Paradise on the table! It is completed with ham and juicy pineapple.",
+        "images": ["1.png"],
+        "price": 10.02
+      },
+      {
+        "id": 2,
+        "name": "Classic",
+        "description": "Our classic ham pizza and exquisite mozzarella cheese.",
+        "images": ["2.png"],
+        "price": 11.02
+      },
+      {
+        "id": 3,
+        "name": "Pepperoni",
+        "description": "Pepperoni and mozzarella cheese.",
+        "images": ["3.png"],
+        "price": 10.0
+      },
+      {
+        "id": 17,
+        "name": "4E Sabores Favoritos",
+        "description": "Supreme, pepperoni, Hawaiian, ham.",
+        "images": ["17.png"],
+        "price": 25.01
+      }
+    ],
+    "specialties": [
+      {
+        "id": 4,
+        "name": "Napolitana",
+        "description": "Fresh tomatoes and olive oil.",
+        "images": ["4.png"],
+        "price": 10.02
+      },
+      {
+        "id": 10,
+        "name": "Supreme",
+        "description": "Para aquellos que desean tenerlo todo. Nuestra famosa combinación de pepperoni, topping de res, hongos, chiltoma, topping de cerdo y cebolla.",
+        "images": ["10.png"],
+        "price": 10.02
+      },
+      {
+        "id": 12,
+        "name": "Super supreme",
+        "description": "Para aquellos que lo quieren todo y algo más. Una perfecta mezcla de topping de res y cerdo, salchicha italiana, jamón, pepperoni, cebolla, chiltoma, hongos y aceitunas negras.",
+        "images": ["12.png"],
+        "price": 10.99
+      },
+      {
+        "id": 13,
+        "name": "Ham and Mushrooms",
+        "description": "Delicious ham and mushroom pizza with mozzarella cheese.",
+        "images": ["13.png"],
+        "price": 10.22
+      },
+      {
+        "id": 18,
+        "name": "4E Meat",
+        "description": "Italian sausage, ham, pepperoni, meats",
+        "images": ["18.png"],
+        "price": 16.02
+      }
+    ],
+    "lovers": [
+      {
+        "id": 6,
+        "name": "Cheese Lover´s",
+        "description": "The best cheese pizza. Generously topped with Mozzarella cheese.",
+        "images": ["6.png"],
+        "price": 10.45
+      },
+      {
+        "id": 7,
+        "name": "Meat Lover´s",
+        "description": "A feast of meat! Pepperoni, beef topping, bacon, Italian sausage, ham and pork topping.",
+        "images": ["7.png"],
+        "price": 10.02
+      },
+      {
+        "id": 8,
+        "name": "Pepperoni Lover´s",
+        "description": "Two layers of Pepperoni.",
+        "images": ["8.png"],
+        "price": 10.02
+      },
+      {
+        "id": 9,
+        "name": "Veggie Lover´s",
+        "description": "Mushrooms, chiltoma, onion, black olives, and slices of fresh tomatoes make this the best vegetarian pizza.",
+        "images": ["9.png"],
+        "price": 10.02
+      },
+      {
+        "id": 11,
+        "name": "Sausage Lover´s",
+        "description": "Italian sausage and pork topping.",
+        "images": ["11.png"],
+        "price": 10.02
+      }
+    ]
+  },
+  "pasta": [
+    {
+      "id": 20015,
+      "name": "Spaguetti with Meatballs",
+      "description": "Nuestra salsa marinara es la más sabrosa de los alrededores. Consiste en una generosa porción de spaguetti, cubierta con exquisíta salsa marinara.",
+      "images": ["20015.png"],
+      "price": 7.47
+    }
+  ],
+  "appetizers": [
+    {
+      "id": 30001,
+      "name": "Classic Garlic Bread",
+      "description": "Slices of bread baked with butter and garlic, with a touch of parsley",
+      "images": ["30001.png"],
+      "price": 4.59
+    },
+    {
+      "id": 30004,
+      "name": "Garlic Bread with Cheese 8 und",
+      "description": "Rebanadas de pan horneadas con mantequilla y ajo, con un toque de perejil",
+      "images": ["30004.png"],
+      "price": 6.33
+    }
+  ],
+  "calzone": [
+    {
+      "id": 10500,
+      "name": "Ham Calzone",
+      "description": "Ham Calzone",
+      "images": ["10500.png"],
+      "price": 3.44
+    },
+    {
+      "id": 10501,
+      "name": "Pepperoni Calzone",
+      "description": "Pepperoni Calzone",
+      "images": ["10501.png"],
+      "price": 3.44
+    },
+    {
+      "id": 10502,
+      "name": "Calzone Jamón y Hongos",
+      "description": "Calzone Jamón y Hongos",
+      "images": ["10502.png"],
+      "price": 4.03
+    },
+    {
+      "id": 10504,
+      "name": "Supreme Calzone",
+      "description": "Supreme Calzone",
+      "images": ["10504.png"],
+      "price": 4.54
+    }
+  ],
+  "desserts": [
+    {
+      "id": 10058,
+      "name": "Hersheys Brownie",
+      "description": "To the chocolate's lovers! Pizza Hut's irresistible Hersheys Chocolate Brownie.",
+      "images": ["10058.png"],
+      "price": 5.74
+    },
+    {
+      "id": 80009,
+      "name": "Cinnamon Sticks Large",
+      "description": "Delicious and warm cinnamon sticks accompanied with vanilla icing.",
+      "images": ["80009.png"],
+      "price": 4.59
+    }
+  ],
+  "drinks": [
+    {
+      "id": 60301,
+      "name": "Naranja 1.75 Ltr",
+      "description": "Naranja 1.75 Ltr",
+      "images": ["60301.png"],
+      "price": 1.78
+    },
+    {
+      "id": 60202,
+      "name": "Pepsi Lata",
+      "description": "Pepsi Lata",
+      "images": ["60202.png"],
+      "price": 1.78
+    },
+    {
+      "id": 60203,
+      "name": "Pepsi Diet Can",
+      "description": "Pepsi Diet Can",
+      "images": ["60203.png"],
+      "price": 1.78
+    }
+  ]
+}
